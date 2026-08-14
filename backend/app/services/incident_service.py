@@ -1,25 +1,22 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from uuid import UUID, uuid4
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models.db_models import (
+    SecurityDetectionRecord,
     SecurityEventRecord,
     SecurityIncidentRecord,
-    SecurityDetectionRecord,
 )
-
 from app.models.incidents import (
     CorrelatedEvent,
     IncidentUpdate,
     SecurityIncident,
 )
-
 from app.services.incident_enrichment_service import (
     enrich_incident_from_cve,
 )
-
 
 # ============================================================
 # EVENT → INCIDENT CORRELATION
@@ -36,7 +33,7 @@ def correlate_resource_events(
     """
 
     cutoff = (
-        datetime.now(timezone.utc)
+        datetime.now(UTC)
         - timedelta(minutes=window_minutes)
     )
 
@@ -341,7 +338,7 @@ def correlate_detections_to_incident(
                 enrich_incident_from_cve(cve)
             )
 
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
 
             # Graph intelligence must never
             # prevent incident creation.

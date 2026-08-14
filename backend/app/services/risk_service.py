@@ -2,7 +2,6 @@ from app.services.intelligence_service import (
     get_critical_vulnerabilities,
 )
 
-
 # ============================================================
 # RISK WEIGHTS
 # ============================================================

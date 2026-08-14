@@ -1,7 +1,9 @@
 from datetime import datetime
 from typing import Any, Literal
 from uuid import UUID
+
 from pydantic import BaseModel, Field
+
 Severity=Literal["informational","low","medium","high","critical"]
 class ResourceRef(BaseModel):
     type:str

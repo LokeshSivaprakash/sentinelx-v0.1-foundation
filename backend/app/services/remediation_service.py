@@ -125,10 +125,14 @@ def _build_remediation(
     # ---------------------------------------------------------
 
     rollback = [
-        "If remediation causes service instability, "
-        "rollback to the previous known-good deployment.",
-        "Maintain compensating controls while remediation "
-        "is being validated.",
+        (
+            "If remediation causes service instability, "
+            "rollback to the previous known-good deployment."
+        ),
+        (
+            "Maintain compensating controls while remediation "
+            "is being validated."
+        ),
     ]
 
     return {

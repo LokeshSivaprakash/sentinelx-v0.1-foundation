@@ -5,48 +5,39 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.db.postgres import SessionLocal, init_db
-
 from app.models.db_models import (
+    SecurityAutomationActionRecord,
     SecurityDetectionRecord,
     SecurityIncidentRecord,
 )
-
 from app.models.events import SecurityEvent
-from app.models.incidents import IncidentUpdate
-
+from app.models.incidents import (
+    AutomationActionUpdate,
+    IncidentUpdate,
+    RemediationVerificationRequest,
+)
 from app.services.correlation_service import (
     find_related_vulnerabilities,
 )
-
 from app.services.detection_service import (
     detect_event,
 )
-
 from app.services.event_service import (
     save_event,
 )
-
-from app.services.incident_service import (
-    correlate_detections_to_incident,
-    correlate_resource_events,
-    update_incident,
-)
-
 from app.services.incident_investigation_service import (
     get_incident_investigation,
 )
-
+from app.services.incident_service import (
+    correlate_detections_to_incident,
+    update_incident,
+)
 from app.services.intelligence_service import (
     get_critical_vulnerabilities,
 )
-
 from app.services.neo4j_service import (
     get_attack_path,
     get_blast_radius,
-)
-
-from app.services.risk_service import (
-    get_prioritized_vulnerabilities,
 )
 from app.services.remediation_service import (
     get_remediation_for_cve,
@@ -54,21 +45,9 @@ from app.services.remediation_service import (
 from app.services.remediation_verification_service import (
     verify_remediation,
 )
-from app.models.incidents import (
-    IncidentUpdate,
-    RemediationVerificationRequest,
+from app.services.risk_service import (
+    get_prioritized_vulnerabilities,
 )
-from app.models.db_models import (
-    SecurityDetectionRecord,
-    SecurityIncidentRecord,
-    SecurityAutomationActionRecord,
-)
-from app.models.incidents import (
-    IncidentUpdate,
-    RemediationVerificationRequest,
-    AutomationActionUpdate,
-)
-
 from app.services.soc_action_service import (
     update_soc_action,
 )
