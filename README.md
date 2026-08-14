@@ -735,7 +735,7 @@ Potential future extensions include:
 
 ## License
 
-Add the project's chosen license here before publishing the repository.
+This project is licensed under the MIT License.
 
 ---
 
