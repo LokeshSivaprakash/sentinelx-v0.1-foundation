@@ -741,4 +741,6 @@ Add the project's chosen license here before publishing the repository.
 
 ## Author
 
+**Lokesh Sivaprakash**
+
 SentinelX is developed as an open-source security engineering project focused on security intelligence, automation, incident response, and application/container security.
