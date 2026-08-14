@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
-
+from neo4j.exceptions import Neo4jError
 
 # Project root:
 # sentinelx-v0.1-foundation/
@@ -51,5 +51,5 @@ def verify_connection() -> bool:
     try:
         driver.verify_connectivity()
         return True
-    except Exception:
+    except Neo4jError:
         return False

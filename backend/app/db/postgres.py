@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-
 # Project root:
 # sentinelx-v0.1-foundation/
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
@@ -43,12 +42,7 @@ SessionLocal = sessionmaker(
 
 def init_db() -> None:
     # Import models so SQLAlchemy registers their tables
-    from app.models.db_models import (
-        SecurityEventRecord,
-        SecurityIncidentRecord,
-        SecurityDetectionRecord,
-        SecurityAutomationActionRecord,
-    )
+    import app.models.db_models  # noqa: F401
 
     Base.metadata.create_all(
         bind=engine

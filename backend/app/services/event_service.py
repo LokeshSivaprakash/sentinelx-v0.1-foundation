@@ -4,21 +4,16 @@ from app.models.db_models import (
     SecurityEventRecord,
     SecurityIncidentRecord,
 )
-
 from app.models.events import SecurityEvent
-
-from app.services.neo4j_service import (
-    create_security_graph,
-)
-
 from app.services.detection_service import (
     detect_event,
 )
-
 from app.services.incident_service import (
     correlate_detections_to_incident,
 )
-
+from app.services.neo4j_service import (
+    create_security_graph,
+)
 from app.services.soc_automation_service import (
     run_soc_playbook,
 )

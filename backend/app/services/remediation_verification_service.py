@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from uuid import UUID
 
 from sqlalchemy import select
@@ -51,7 +51,7 @@ def verify_remediation(
         "remediated_version": remediated_version,
         "verification_methods": verification_methods,
         "verified_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
     }
 

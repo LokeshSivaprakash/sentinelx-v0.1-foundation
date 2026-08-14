@@ -1,5 +1,5 @@
+import app.models.db_models  # noqa: F401
 from app.db.postgres import Base, engine
-from app.models.db_models import SecurityEventRecord, SecurityIncidentRecord
 
 
 def init_database():

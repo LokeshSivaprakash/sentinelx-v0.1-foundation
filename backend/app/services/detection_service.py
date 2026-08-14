@@ -2,11 +2,11 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models.db_models import SecurityDetectionRecord
-from app.models.events import SecurityEvent
 from app.models.detections import (
     DetectionResponse,
     DetectionResult,
 )
+from app.models.events import SecurityEvent
 
 
 def _persist_detection(
